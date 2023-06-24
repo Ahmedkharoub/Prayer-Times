@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">PrayerTimeApp</string>
+    <string name="Fajr">Fajr</string>
+    <string name="Sunrise">Sunrise</string>
+    <string name="Dhuhr">Dhuhr</string>
+    <string name="Asr">Asr</string>
+    <string name="Sunset">Sunset</string>
+    <string name="Maghrib">Maghrib</string>
+    <string name="Isha">Isha</string>
+    <string name="Imsak">Imsak</string>
+    <string name="Midnight">Midnight</string>
+    <string name="Firstthird">Firstthird</string>
+    <string name="Lastthird">Lastthird</string>
+    <string name="readable">readable</string>
+    <string name="NextDay">readable</string>
+    <string name="yesterday">readable</string>
+    <string name="location">Location</string>
+    <string name="nextpray">Next\nprayer</string>
+    <string name="time">Time</string>
+    <string name="pray_name">PrayName</string>
+    <string name="Qibla_direction">Qibla Direction</string>
+    <string name="time_left">Time Left</string>
+
+</resources>

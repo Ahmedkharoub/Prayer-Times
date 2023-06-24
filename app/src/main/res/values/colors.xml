@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="prime">#0f42ec</color>
+    <color name="action_bar">#55cab4</color>
+</resources>
