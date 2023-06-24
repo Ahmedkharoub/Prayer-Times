@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -105,7 +106,7 @@ public class PrayerTimesService {
                 }
             });
         } else {
-            // TODO: 6/22/2023 Display error
+            Toast.makeText(mContext, "API request failed", Toast.LENGTH_SHORT).show();
         }
     }
 
