@@ -6,16 +6,19 @@ public class HijriWeekday {
 
     private String ar;
 
-    public void setEn(String en){
+    public void setEn(String en) {
         this.en = en;
     }
-    public String getEn(){
+
+    public String getEn() {
         return this.en;
     }
-    public void setAr(String ar){
+
+    public void setAr(String ar) {
         this.ar = ar;
     }
-    public String getAr(){
+
+    public String getAr() {
         return this.ar;
     }
 }

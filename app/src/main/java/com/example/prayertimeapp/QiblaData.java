@@ -7,22 +7,27 @@ public class QiblaData {
 
     private double direction;
 
-    public void setLatitude(double latitude){
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
-    public double getLatitude(){
+
+    public double getLatitude() {
         return this.latitude;
     }
-    public void setLongitude(double longitude){
+
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
-    public double getLongitude(){
+
+    public double getLongitude() {
         return this.longitude;
     }
-    public void setDirection(double direction){
+
+    public void setDirection(double direction) {
         this.direction = direction;
     }
-    public double getDirection(){
+
+    public double getDirection() {
         return this.direction;
     }
 }

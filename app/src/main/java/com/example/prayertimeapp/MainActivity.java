@@ -23,9 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.example.prayertimeapp.DB.PrayerTimesDatabaseHelper;
 import com.example.prayertimeapp.DB.PrayerTimesService;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -55,12 +53,11 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
     TextView mIsha;
     TextView mReadable;
     TextView mLocation;
-    TextView mNextPray;
     TextView mPrayName;
     TextView mTime;
     ImageView forward;
     ImageView back;
-    Button qibladirection;
+    Button qiblaDirection;
     boolean permissionAsked = false;
     ProgressBar progressBarDetails;
 
@@ -69,14 +66,11 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
     private int REQUEST_CODE = 100;
     FusedLocationProviderClient fusedLocationProviderClient;
     int DAY = 0, MONTH = 0, YEAR = 0;
-    int Hour = 0, Mints = 0;
 
     private PrayerTimesService prayerTimesService;
-    private PrayerTimesDatabaseHelper prayerTimesDatabaseHelper;
 
     private double LATITUDE, LONGITUDE;
     private String ADDRESS;
-    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,25 +91,19 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
         mTime = findViewById(R.id.next_pray_time);
         forward = findViewById(R.id.forward_button);
         back = findViewById(R.id.back_button);
-        qibladirection = findViewById(R.id.qibla_direction);
+        qiblaDirection = findViewById(R.id.qibla_direction);
         progressBarDetails = findViewById(R.id.progressBar);
         constraintLayout = findViewById(R.id.parent);
-
 
         progressBarDetails.setVisibility(View.VISIBLE);
         constraintLayout.setVisibility(View.GONE);
 
-
-
-        qibladirection.setOnClickListener(v -> {
+        qiblaDirection.setOnClickListener(v -> {
             LocationCache.getInstance().setLatitude(LATITUDE);
             LocationCache.getInstance().setLatitude(LONGITUDE);
             Intent i = new Intent(MainActivity.this, QiblaDirection.class);
-//                i.putExtra("latitude", LATITUDE);
-//                i.putExtra("longitude", LONGITUDE);
             startActivity(i);
         });
-
 
         forward.setOnClickListener(v -> {
             incrementDay(false);
@@ -199,15 +187,15 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
                 } else {
                     // after Isha and before midnight
                     nextPrayerDate = fajrDate;
-                    nextPrayerName = "Fair";
+                    nextPrayerName = "Fajr";
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTime(nextPrayerDate);
                     calendar.add(Calendar.DAY_OF_MONTH, 1);
                     nextPrayerDate.setTime(calendar.getTime().getTime());
                 }
 
-                long diffInMillies = Math.abs(nextPrayerDate.getTime() - date.getTime());
-                long diffInMinutes = TimeUnit.MILLISECONDS.toMinutes(diffInMillies);
+                long diffInMillis = Math.abs(nextPrayerDate.getTime() - date.getTime());
+                long diffInMinutes = TimeUnit.MILLISECONDS.toMinutes(diffInMillis);
                 long hours = diffInMinutes / 60;
                 long minutes = diffInMinutes % 60;
                 String formattedDiff;
@@ -216,15 +204,14 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
                 } else {
                     formattedDiff = String.format("%dhr %dmin", hours, minutes);
                 }
+
                 mTime.setText(formattedDiff);
                 mPrayName.setText(nextPrayerName);
-
-
             } catch (ParseException e) {
                 throw new RuntimeException(e);
             }
         } else {
-            // handle the null object reference error
+            Toast.makeText(this, "Failed to parse data", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -250,8 +237,6 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
     }
 
     private void getData() {
-
-        System.out.printf("%s-%s-%s", YEAR, MONTH, DAY);
         prayerTimesService.getPrayerTimes(YEAR, MONTH, DAY, LATITUDE, LONGITUDE, new PrayerTimesService.OnPrayerTimesResponseListener() {
             @Override
             public void onPrayerTimesResponse(Data prayerTimes) {

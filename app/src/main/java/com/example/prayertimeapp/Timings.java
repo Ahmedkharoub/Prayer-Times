@@ -24,70 +24,91 @@ public class Timings {
 
     private String Lastthird;
 
-    public void setFajr(String Fajr){
+    public void setFajr(String Fajr) {
         this.Fajr = Fajr;
     }
-    public String getFajr(){
+
+    public String getFajr() {
         return this.Fajr;
     }
-    public void setSunrise(String Sunrise){
+
+    public void setSunrise(String Sunrise) {
         this.Sunrise = Sunrise;
     }
-    public String getSunrise(){
+
+    public String getSunrise() {
         return this.Sunrise;
     }
-    public void setDhuhr(String Dhuhr){
+
+    public void setDhuhr(String Dhuhr) {
         this.Dhuhr = Dhuhr;
     }
-    public String getDhuhr(){
+
+    public String getDhuhr() {
         return this.Dhuhr;
     }
-    public void setAsr(String Asr){
+
+    public void setAsr(String Asr) {
         this.Asr = Asr;
     }
-    public String getAsr(){
+
+    public String getAsr() {
         return this.Asr;
     }
-    public void setSunset(String Sunset){
+
+    public void setSunset(String Sunset) {
         this.Sunset = Sunset;
     }
-    public String getSunset(){
+
+    public String getSunset() {
         return this.Sunset;
     }
-    public void setMaghrib(String Maghrib){
+
+    public void setMaghrib(String Maghrib) {
         this.Maghrib = Maghrib;
     }
-    public String getMaghrib(){
+
+    public String getMaghrib() {
         return this.Maghrib;
     }
-    public void setIsha(String Isha){
+
+    public void setIsha(String Isha) {
         this.Isha = Isha;
     }
-    public String getIsha(){
+
+    public String getIsha() {
         return this.Isha;
     }
-    public void setImsak(String Imsak){
+
+    public void setImsak(String Imsak) {
         this.Imsak = Imsak;
     }
-    public String getImsak(){
+
+    public String getImsak() {
         return this.Imsak;
     }
-    public void setMidnight(String Midnight){
+
+    public void setMidnight(String Midnight) {
         this.Midnight = Midnight;
     }
-    public String getMidnight(){
+
+    public String getMidnight() {
         return this.Midnight;
     }
-    public void setFirstthird(String Firstthird){
+
+    public void setFirstthird(String Firstthird) {
         this.Firstthird = Firstthird;
     }
-    public String getFirstthird(){
+
+    public String getFirstthird() {
         return this.Firstthird;
     }
-    public void setLastthird(String Lastthird){
+
+    public void setLastthird(String Lastthird) {
         this.Lastthird = Lastthird;
     }
-    public String getLastthird(){
+
+    public String getLastthird() {
         return this.Lastthird;
     }
 }

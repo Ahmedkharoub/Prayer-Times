@@ -6,22 +6,27 @@ public class QiblaResponse {
 
     private QiblaData data;
 
-    public void setCode(int code){
+    public void setCode(int code) {
         this.code = code;
     }
-    public int getCode(){
+
+    public int getCode() {
         return this.code;
     }
-    public void setStatus(String status){
+
+    public void setStatus(String status) {
         this.status = status;
     }
-    public String getStatus(){
+
+    public String getStatus() {
         return this.status;
     }
-    public void setData(QiblaData data){
+
+    public void setData(QiblaData data) {
         this.data = data;
     }
-    public QiblaData getData(){
+
+    public QiblaData getData() {
         return this.data;
     }
 }

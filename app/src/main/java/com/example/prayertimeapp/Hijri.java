@@ -19,52 +19,67 @@ public class Hijri {
 
     private List<String> holidays;
 
-    public void setDate(String date){
+    public void setDate(String date) {
         this.date = date;
     }
-    public String getDate(){
+
+    public String getDate() {
         return this.date;
     }
-    public void setFormat(String format){
+
+    public void setFormat(String format) {
         this.format = format;
     }
-    public String getFormat(){
+
+    public String getFormat() {
         return this.format;
     }
-    public void setDay(String day){
+
+    public void setDay(String day) {
         this.day = day;
     }
-    public String getDay(){
+
+    public String getDay() {
         return this.day;
     }
-    public void setWeekday(HijriWeekday hijriWeekday){
+
+    public void setWeekday(HijriWeekday hijriWeekday) {
         this.weekday = hijriWeekday;
     }
-    public HijriWeekday getWeekday(){
+
+    public HijriWeekday getWeekday() {
         return this.weekday;
     }
-    public void setMonth(HijriMonth hijriMonth){
+
+    public void setMonth(HijriMonth hijriMonth) {
         this.month = hijriMonth;
     }
-    public HijriMonth getMonth(){
+
+    public HijriMonth getMonth() {
         return this.month;
     }
-    public void setYear(String year){
+
+    public void setYear(String year) {
         this.year = year;
     }
-    public String getYear(){
+
+    public String getYear() {
         return this.year;
     }
-    public void setDesignation(HijriDesignation hijriDesignation){
+
+    public void setDesignation(HijriDesignation hijriDesignation) {
         this.designation = hijriDesignation;
     }
-    public HijriDesignation getDesignation(){
+
+    public HijriDesignation getDesignation() {
         return this.designation;
     }
-    public void setHolidays(List<String> holidays){
+
+    public void setHolidays(List<String> holidays) {
         this.holidays = holidays;
     }
-    public List<String> getHolidays(){
+
+    public List<String> getHolidays() {
         return this.holidays;
     }
 }

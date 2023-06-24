@@ -5,16 +5,19 @@ public class GregorianMonth {
 
     private String en;
 
-    public void setNumber(int number){
+    public void setNumber(int number) {
         this.number = number;
     }
-    public int getNumber(){
+
+    public int getNumber() {
         return this.number;
     }
-    public void setEn(String en){
+
+    public void setEn(String en) {
         this.en = en;
     }
-    public String getEn(){
+
+    public String getEn() {
         return this.en;
     }
 }

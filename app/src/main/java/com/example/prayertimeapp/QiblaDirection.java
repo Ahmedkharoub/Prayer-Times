@@ -1,19 +1,14 @@
 package com.example.prayertimeapp;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
@@ -35,8 +30,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class QiblaDirection extends AppCompatActivity {
 
     private MapView mapView;
-    private double KAABA_LATITUDE = 21.424025;
-    private double KAABA_LONGITUDE = 39.824837;
+    private final double KAABA_LATITUDE = 21.424025;
+    private final double KAABA_LONGITUDE = 39.824837;
     private double DIRECTION = 0.0;
     double latitudeValue;
     double longitudeValue;
@@ -47,10 +42,6 @@ public class QiblaDirection extends AppCompatActivity {
         setContentView(R.layout.activity_qibla_direction);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.action_bar)));
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
-
-//        Intent intent = getIntent();
-//        latitudeValue = intent.getDoubleExtra("latitude", 0.0);
-//        longitudeValue = intent.getDoubleExtra("longitude", 0.0);
 
         latitudeValue = LocationCache.getInstance().getLatitude();
         longitudeValue = LocationCache.getInstance().getLatitude();
@@ -96,6 +87,7 @@ public class QiblaDirection extends AppCompatActivity {
                     marker2.setPosition(new GeoPoint(KAABA_LATITUDE, KAABA_LONGITUDE));
                     mapView.getOverlays().add(marker2);
                 } else {
+                    Toast.makeText(QiblaDirection.this, "API request failed", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -108,15 +100,15 @@ public class QiblaDirection extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.compass,menu);
+        getMenuInflater().inflate(R.menu.compass, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.compass_menu){
-           Intent compass_menu = new Intent(QiblaDirection.this,QiblaCompass.class);
-            compass_menu.putExtra("latitude",latitudeValue );
+        if (item.getItemId() == R.id.compass_menu) {
+            Intent compass_menu = new Intent(QiblaDirection.this, QiblaCompass.class);
+            compass_menu.putExtra("latitude", latitudeValue);
             compass_menu.putExtra("longitude", longitudeValue);
             compass_menu.putExtra("DIRECTION", DIRECTION);
             startActivity(compass_menu);

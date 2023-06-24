@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 
 public class PrayerTimesDatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "prayer_times.db";
-    private static final int DATABASE_VERSION =1;
+    private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "prayer_times";
     private static final String COLUMN_DATE = "date";
 
@@ -32,11 +32,9 @@ public class PrayerTimesDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 
     public void savePrayerTimes(String date, Data prayerTimes) {
-        System.out.printf("Saving key %s which has date %s", date, prayerTimes.getDate().getGregorian().getDate());
         Data previousData = getPrayerTimes(date);
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -62,9 +60,9 @@ public class PrayerTimesDatabaseHelper extends SQLiteOpenHelper {
             prayerTimes = new Gson().fromJson(prayerTimesJson, Data.class);
 
         }
+
         cursor.close();
         db.close();
         return prayerTimes;
-
     }
 }

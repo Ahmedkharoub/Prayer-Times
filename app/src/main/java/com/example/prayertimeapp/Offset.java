@@ -19,58 +19,75 @@ public class Offset {
 
     private int Midnight;
 
-    public void setImsak(int Imsak){
+    public void setImsak(int Imsak) {
         this.Imsak = Imsak;
     }
-    public int getImsak(){
+
+    public int getImsak() {
         return this.Imsak;
     }
-    public void setFajr(int Fajr){
+
+    public void setFajr(int Fajr) {
         this.Fajr = Fajr;
     }
-    public int getFajr(){
+
+    public int getFajr() {
         return this.Fajr;
     }
-    public void setSunrise(int Sunrise){
+
+    public void setSunrise(int Sunrise) {
         this.Sunrise = Sunrise;
     }
-    public int getSunrise(){
+
+    public int getSunrise() {
         return this.Sunrise;
     }
-    public void setDhuhr(int Dhuhr){
+
+    public void setDhuhr(int Dhuhr) {
         this.Dhuhr = Dhuhr;
     }
-    public int getDhuhr(){
+
+    public int getDhuhr() {
         return this.Dhuhr;
     }
-    public void setAsr(int Asr){
+
+    public void setAsr(int Asr) {
         this.Asr = Asr;
     }
-    public int getAsr(){
+
+    public int getAsr() {
         return this.Asr;
     }
-    public void setMaghrib(int Maghrib){
+
+    public void setMaghrib(int Maghrib) {
         this.Maghrib = Maghrib;
     }
-    public int getMaghrib(){
+
+    public int getMaghrib() {
         return this.Maghrib;
     }
-    public void setSunset(int Sunset){
+
+    public void setSunset(int Sunset) {
         this.Sunset = Sunset;
     }
-    public int getSunset(){
+
+    public int getSunset() {
         return this.Sunset;
     }
-    public void setIsha(int Isha){
+
+    public void setIsha(int Isha) {
         this.Isha = Isha;
     }
-    public int getIsha(){
+
+    public int getIsha() {
         return this.Isha;
     }
-    public void setMidnight(int Midnight){
+
+    public void setMidnight(int Midnight) {
         this.Midnight = Midnight;
     }
-    public int getMidnight(){
+
+    public int getMidnight() {
         return this.Midnight;
     }
 

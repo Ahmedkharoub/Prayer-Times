@@ -7,32 +7,24 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.RectF;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Toast;
 
 public class QiblaCompassView extends View implements SensorEventListener {
     private Paint paint;
     private Path path;
     private float currentDegree = 0f;
     private double qiblaDirection = 0.0;
-    private double kaabaLatitude = 21.4225;
-    private double kaabaLongitude = 39.8262;
-    private double latitude;
-    private double longitude;
     private SensorManager sensorManager;
     private Sensor accelerometerSensor;
     private Sensor magnetometerSensor;
     private float[] gravity = new float[3];
     private float[] geomagnetic = new float[3];
     private float[] rotationMatrix = new float[9];
-    private Paint mPaint;
-    private Path mPath;
     private Bitmap mBitmap;
 
     public QiblaCompassView(Context context, AttributeSet attrs) {
@@ -53,11 +45,9 @@ public class QiblaCompassView extends View implements SensorEventListener {
         accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         magnetometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
 
-
         mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.compass);
         mBitmap = Bitmap.createScaledBitmap(mBitmap, mBitmap.getWidth() / 2, mBitmap.getHeight() / 2, true);
     }
-
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -77,14 +67,9 @@ public class QiblaCompassView extends View implements SensorEventListener {
         // Draw the direction to the Qibla
         paint.setStrokeWidth(4);
         canvas.rotate(direction, getWidth() / 2, getHeight() / 2);
-        canvas.drawBitmap(mBitmap, (getWidth() / 2) - (mBitmap.getWidth() / 2), (getHeight() / 2) - (mBitmap.getHeight() / 2), mPaint);
-//        path.reset();
-//        path.moveTo(getWidth() / 2, getHeight() / 2);
-//        path.lineTo(getWidth() / 2, getHeight() / 2 / 4);
-//        path.close();
-//
+        canvas.drawBitmap(mBitmap, (getWidth() / 2) - (mBitmap.getWidth() / 2), (getHeight() / 2) - (mBitmap.getHeight() / 2), paint);
+
         canvas.save();
-//        canvas.drawPath(path, paint);
         canvas.restore();
     }
 
@@ -102,35 +87,16 @@ public class QiblaCompassView extends View implements SensorEventListener {
         }
 
         if (gravity != null && geomagnetic != null) {
-            // Compute the rotation matrix
             boolean success = SensorManager.getRotationMatrix(rotationMatrix, null, gravity, geomagnetic);
 
             if (success) {
-                // Compute the orientation angles
                 float[] orientationAngles = new float[3];
                 SensorManager.getOrientation(rotationMatrix, orientationAngles);
 
-                // Compute the current device direction in degrees
                 currentDegree = (float) Math.toDegrees(orientationAngles[0]);
                 invalidate();
             }
         }
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
-
-    public void setKaabaLatitude(double kaabaLatitude) {
-        this.kaabaLatitude = kaabaLatitude;
-    }
-
-    public void setKaabaLongitude(double kaabaLongitude) {
-        this.kaabaLongitude = kaabaLongitude;
     }
 
     public void startListeningForSensorEvents() {
@@ -145,12 +111,7 @@ public class QiblaCompassView extends View implements SensorEventListener {
         sensorManager.unregisterListener(this);
     }
 
-    public void stop() {
-        // Unregister the sensors
-        sensorManager.unregisterListener(this);
-    }
-
-    public void setKaabaDirectoin(double direction) {
+    public void setKaabaDirection(double direction) {
         this.qiblaDirection = direction;
     }
 }

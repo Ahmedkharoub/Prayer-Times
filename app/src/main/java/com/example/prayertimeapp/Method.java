@@ -9,28 +9,35 @@ public class Method {
 
     private Location location;
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
-    public int getId(){
+
+    public int getId() {
         return this.id;
     }
-    public void setName(String name){
+
+    public void setName(String name) {
         this.name = name;
     }
-    public String getName(){
+
+    public String getName() {
         return this.name;
     }
-    public void setParams(Params params){
+
+    public void setParams(Params params) {
         this.params = params;
     }
-    public Params getParams(){
+
+    public Params getParams() {
         return this.params;
     }
-    public void setLocation(Location location){
+
+    public void setLocation(Location location) {
         this.location = location;
     }
-    public Location getLocation(){
+
+    public Location getLocation() {
         return this.location;
     }
 }

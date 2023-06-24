@@ -6,16 +6,19 @@ public class HijriDesignation {
 
     private String expanded;
 
-    public void setAbbreviated(String abbreviated){
+    public void setAbbreviated(String abbreviated) {
         this.abbreviated = abbreviated;
     }
-    public String getAbbreviated(){
+
+    public String getAbbreviated() {
         return this.abbreviated;
     }
-    public void setExpanded(String expanded){
+
+    public void setExpanded(String expanded) {
         this.expanded = expanded;
     }
-    public String getExpanded(){
+
+    public String getExpanded() {
         return this.expanded;
     }
 }

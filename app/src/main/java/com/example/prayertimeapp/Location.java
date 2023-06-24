@@ -5,16 +5,19 @@ public class Location {
 
     private double longitude;
 
-    public void setLatitude(double latitude){
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
-    public double getLatitude(){
+
+    public double getLatitude() {
         return this.latitude;
     }
-    public void setLongitude(double longitude){
+
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
-    public double getLongitude(){
+
+    public double getLongitude() {
         return this.longitude;
     }
 }

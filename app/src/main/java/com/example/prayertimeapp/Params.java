@@ -5,16 +5,19 @@ public class Params {
 
     private float Isha;
 
-    public void setFajr(float Fajr){
+    public void setFajr(float Fajr) {
         this.Fajr = Fajr;
     }
-    public float getFajr(){
+
+    public float getFajr() {
         return this.Fajr;
     }
-    public void setIsha(float Isha){
+
+    public void setIsha(float Isha) {
         this.Isha = Isha;
     }
-    public float getIsha(){
+
+    public float getIsha() {
         return this.Isha;
     }
 }

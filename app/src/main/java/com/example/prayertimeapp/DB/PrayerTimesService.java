@@ -1,10 +1,8 @@
 package com.example.prayertimeapp.DB;
 
-import android.app.MediaRouteButton;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -38,7 +36,6 @@ public class PrayerTimesService {
     ConstraintLayout coordinatorLayout;
 
     private PrayerTimesService() {
-
     }
 
     private PrayerTimesService(Context context) {
@@ -52,7 +49,6 @@ public class PrayerTimesService {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-
         prayerTimesApi = retrofit.create(PrayerTimesApi.class);
         this.mContext = context;
         prayerTimesDatabaseHelper = new PrayerTimesDatabaseHelper(mContext);
@@ -62,6 +58,7 @@ public class PrayerTimesService {
         if (instance == null) {
             instance = new PrayerTimesService(context);
         }
+
         return instance;
     }
 
@@ -130,4 +127,3 @@ public class PrayerTimesService {
         return year + "-" + month + "-" + day;
     }
 }
-

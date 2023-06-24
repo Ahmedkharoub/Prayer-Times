@@ -9,22 +9,27 @@ public class Root {
 
     private List<Data> data;
 
-    public void setCode(int code){
+    public void setCode(int code) {
         this.code = code;
     }
-    public int getCode(){
+
+    public int getCode() {
         return this.code;
     }
-    public void setStatus(String status){
+
+    public void setStatus(String status) {
         this.status = status;
     }
-    public String getStatus(){
+
+    public String getStatus() {
         return this.status;
     }
-    public void setData(List<Data> data){
+
+    public void setData(List<Data> data) {
         this.data = data;
     }
-    public List<Data> getData(){
+
+    public List<Data> getData() {
         return this.data;
     }
 }
