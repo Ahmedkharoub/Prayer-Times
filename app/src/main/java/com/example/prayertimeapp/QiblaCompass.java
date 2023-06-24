@@ -7,9 +7,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class QiblaCompass extends AppCompatActivity {
-
-    private final double KAABA_LATITUDE = 21.424025;
-    private final double KAABA_LONGITUDE = 39.824837;
     QiblaCompassView qiblaCompassView;
 
     @Override
@@ -21,8 +18,6 @@ public class QiblaCompass extends AppCompatActivity {
         qiblaCompassView = findViewById(R.id.qibla_compass_view);
 
         Intent intent = getIntent();
-        double latitudeValue = intent.getDoubleExtra("latitude", 0.0);
-        double longitudeValue = intent.getDoubleExtra("longitude", 0.0);
         double direction = intent.getDoubleExtra("DIRECTION", 0.0);
 
         qiblaCompassView.setKaabaDirection(direction);
