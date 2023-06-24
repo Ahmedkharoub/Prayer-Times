@@ -25,10 +25,6 @@ public class QiblaCompass extends AppCompatActivity {
         double longitudeValue = intent.getDoubleExtra("longitude", 0.0);
         double direction = intent.getDoubleExtra("DIRECTION", 0.0);
 
-        qiblaCompassView.setLatitude(latitudeValue);
-        qiblaCompassView.setLongitude(longitudeValue);
-        qiblaCompassView.setKaabaLatitude(KAABA_LATITUDE);
-        qiblaCompassView.setKaabaLongitude(KAABA_LONGITUDE);
         qiblaCompassView.setKaabaDirection(direction);
         qiblaCompassView.startListeningForSensorEvents();
     }
